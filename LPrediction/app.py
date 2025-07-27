@@ -1,41 +1,3 @@
-""" import streamlit as st
-import pickle
-import numpy as np
-
-st.title("Laptop Price Predictor")
-
-st.write("A simple machine learning site to predict estimated laptop prices")
-
-# Load the saved model
-with open('model.pkl', 'rb') as f:
-    model = pickle.load(f)
-
-
-# Create user input fields
-Storage_Capacity = st.number_input("Enter Storage Capacity",
-                          min_value=100, max_value=4000, value=500)
-RAM_Size = st.number_input("Enter RAM size", 
-                      min_value=2, max_value=128, value=8)
-Weight = st.number_input("Enter Laptop Weight",
-                         min_value=1, max_value=5, value=2)
-Screen_Size = st.number_input("Enter Screen size",
-                         min_value=10, max_value=15, value=11)
-Processor_Speed = st.number_input("Enter Processor speed", 
-                            min_value=1, max_value=10, value=2)
-
-
-# Button for prediction
-if st.button("Predict"):
-    # Prepare the input array
-    user_data = np.array([[Storage_Capacity, RAM_Size, Weight, Screen_Size,
-                           Processor_Speed]])  # Add more inputs as necessary
-
-    # Make prediction
-    prediction = model.predict(user_data)
-
-    # Show prediction result
-    st.write(f"Prediction price: {prediction[0]:.2f}") """
-
 import streamlit as st
 import numpy as np
 import pickle
@@ -43,7 +5,7 @@ import os
 import sklearn
 
 # Set page config with a title and a background color
-st.set_page_config(page_title="Laptop Price Predictor 💻", layout="centered")
+st.set_page_config(page_title="Mathias Laptop Price Predictor 💻", layout="centered")
 
 # Apply background color using HTML & CSS
 page_bg = """
