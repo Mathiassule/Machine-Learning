@@ -39,6 +39,7 @@ if st.button("Predict"):
 import streamlit as st
 import numpy as np
 import pickle
+import os
 
 # Set page config with a title and a background color
 st.set_page_config(page_title="Laptop Price Predictor 💻", layout="centered")
