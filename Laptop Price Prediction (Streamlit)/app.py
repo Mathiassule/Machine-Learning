@@ -69,11 +69,12 @@ st.markdown("### Fill in the laptop specifications below:")
 # Load the saved model
 current_dir = os.path.dirname("/mount/src/machine-learning/Laptop Price Prediction (Streamlit)/")
 
-# Construct full path to model.pkl
-model_path = os.path.join(current_dir, "model.pkl")
-with open(model_path, 'rb') as f:
-    model = pickle.load(f)
-
+try:
+    with open(model_path, 'rb') as f:
+        model = pickle.load(f)
+except Exception as e:
+    st.error(f"Error loading model: {e}")
+    
 # UI form for laptop features
 with st.form("laptop_form"):
     col1, col2 = st.columns(2)
