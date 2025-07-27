@@ -67,7 +67,9 @@ st.markdown("### Fill in the laptop specifications below:")
 
 
 # Load the saved model
-model_path = os.path.dirname("/mount/src/machine-learning/Laptop Price Prediction (Streamlit)/")
+current_path = os.path.dirname("/mount/src/machine-learning/Laptop Price Prediction (Streamlit)/")
+
+model_path = os.path.join(current_path, 'model.pkl')
 
 try:
     with open(model_path, 'rb') as f:
