@@ -66,7 +66,7 @@ st.markdown("<h1 style='text-align: center; color: #2c3e50;'>💻 Laptop Price P
 st.markdown("### Fill in the laptop specifications below:")
 
 try:
-    BASE_DIR = os.path.dirname(os.path.abspath("/mount/src/machine-learning/Laptop Price Prediction (Streamlit)/app.py"))
+    BASE_DIR = os.path.dirname(os.path.abspath("machine-learning/Laptop Price Prediction (Streamlit)/"))
     model_path = os.path.join(BASE_DIR, 'model.pkl')
 
     with open(model_path, 'rb') as f:
