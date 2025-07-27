@@ -65,11 +65,16 @@ st.markdown("<h1 style='text-align: center; color: #2c3e50;'>💻 Laptop Price P
 
 st.markdown("### Fill in the laptop specifications below:")
 # Load the saved model
-curr_path = "machine-learning/Laptop Price Prediction/"
-model_path = os.path.join(curr_path, "model.pkl")
+try:
+    BASE_DIR = os.path.dirname(os.path.abspath("machine-learning/Laptop Price Prediction/"))
+    model_path = os.path.join(BASE_DIR, 'model.pkl')
 
-with open(model_path, 'rb') as f:
-    model = pickle.load(f)
+    with open(model_path, 'rb') as f:
+        model = pickle.load(f)
+except ModuleNotFoundError as e:
+    st.error(f"Missing module: {e}")
+except Exception as e:
+    st.error(f"Error loading model: {e}")
 
 # UI form for laptop features
 with st.form("laptop_form"):
