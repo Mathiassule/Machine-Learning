@@ -39,6 +39,8 @@ if st.button("Predict"):
 import streamlit as st
 import numpy as np
 import pickle
+import os
+import sklearn
 
 # Set page config with a title and a background color
 st.set_page_config(page_title="Laptop Price Predictor 💻", layout="centered")
@@ -64,8 +66,16 @@ st.markdown("<h1 style='text-align: center; color: #2c3e50;'>💻 Laptop Price P
 
 st.markdown("### Fill in the laptop specifications below:")
 # Load the saved model
-with open('model.pkl', 'rb') as f:
-    model = pickle.load(f)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Correct path to the model file
+model_path = os.path.join(BASE_DIR, 'model.pkl')  # NOT just BASE_DIR
+
+try:
+    with open(model_path, 'rb') as f:
+        model = pickle.load(f)
+except Exception as e:
+    st.error(f"Error loading model: {e}")
 
 # UI form for laptop features
 with st.form("laptop_form"):
