@@ -39,6 +39,7 @@ if st.button("Predict"):
 import streamlit as st
 import numpy as np
 import pickle
+import os
 
 # Set page config with a title and a background color
 st.set_page_config(page_title="Laptop Price Predictor 💻", layout="centered")
@@ -63,8 +64,14 @@ st.markdown(page_bg, unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center; color: #2c3e50;'>💻 Laptop Price Predictor</h1>", unsafe_allow_html=True)
 
 st.markdown("### Fill in the laptop specifications below:")
+
+
 # Load the saved model
-with open('model.pkl', 'rb') as f:
+current_dir = os.path.dirname("/mount/src/machine-learning/Laptop Price Prediction (Streamlit)/")
+
+# Construct full path to model.pkl
+model_path = os.path.join(current_dir, "model.pkl")
+with open(model_path, 'rb') as f:
     model = pickle.load(f)
 
 # UI form for laptop features
