@@ -37,6 +37,9 @@ if st.button("Predict"):
     st.write(f"Prediction price: {prediction[0]:.2f}") """
 
 import streamlit as st
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
 import numpy as np
 import pickle
 import os
