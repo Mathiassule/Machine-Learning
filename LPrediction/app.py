@@ -24,7 +24,7 @@ body {
 st.markdown(page_bg, unsafe_allow_html=True)
 
 # App Title with Emoji
-st.markdown("<h1 style='text-align: center; color: #2c3e50;'>💻 Laptop Price Predictor</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #2c3e50;'>💻 Mathias Laptop Price Predictor</h1>", unsafe_allow_html=True)
 
 st.markdown("### Fill in the laptop specifications below:")
 # Load the saved model
