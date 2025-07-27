@@ -64,7 +64,10 @@ st.markdown("<h1 style='text-align: center; color: #2c3e50;'>💻 Laptop Price P
 
 st.markdown("### Fill in the laptop specifications below:")
 # Load the saved model
-with open('model.pkl', 'rb') as f:
+curr_path = "machine-learning/Laptop Price Prediction/"
+model_path = os.path.join(curr_path, "model.pkl")
+
+with open(model_path, 'rb') as f:
     model = pickle.load(f)
 
 # UI form for laptop features
