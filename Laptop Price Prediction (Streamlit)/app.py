@@ -65,15 +65,16 @@ st.markdown("<h1 style='text-align: center; color: #2c3e50;'>💻 Laptop Price P
 
 st.markdown("### Fill in the laptop specifications below:")
 
-BASE_DIR = os.path.dirname(os.path.abspath("/mount/src/machine-learning/Laptop Price Prediction (Streamlit)/app.py"))
+try:
+    BASE_DIR = os.path.dirname(os.path.abspath("/mount/src/machine-learning/Laptop Price Prediction (Streamlit)/app.py"))
+    model_path = os.path.join(BASE_DIR, 'model.pkl')
 
-# Build the absolute path to model.pkl
-model_path = os.path.join(BASE_DIR, 'model.pkl')
-
-# Load the model
-with open(model_path, 'rb') as f:
-    model = pickle.load(f)
-
+    with open(model_path, 'rb') as f:
+        model = pickle.load(f)
+except ModuleNotFoundError as e:
+    st.error(f"Missing module: {e}")
+except Exception as e:
+    st.error(f"Error loading model: {e}")
 # UI form for laptop features
 with st.form("laptop_form"):
     col1, col2 = st.columns(2)
